@@ -31,8 +31,9 @@ async function fetchData() {
         if (selectedValue == "card") {
             tableElement.innerHTML = ''
             cardsElement.innerHTML = ''
-            
-            data.forEach((element)=>{
+            cardsElement.classList.remove("version2")
+
+            data.forEach((element) => {
                 cardsElement.innerHTML += `
                     <div class="card">
                         <img src="${element.image}">
@@ -48,7 +49,7 @@ async function fetchData() {
                     </div>
                 `
             })
-        }else if(selectedValue == "table"){
+        } else if (selectedValue == "table") {
             tableElement.innerHTML = `
         <tr>
             <th>id</th>
@@ -57,9 +58,9 @@ async function fetchData() {
             <th>price</th>
             <th>category</th>
         </tr>`
-    data.forEach((element) => {
-        cardsElement.innerHTML = ''
-        tableElement.innerHTML += `
+            data.forEach((element) => {
+                cardsElement.innerHTML = ''
+                tableElement.innerHTML += `
         <tr>
             <td>${element.id}</td>
             <td class="table-img"><img src="${element.image}"> </td>
@@ -68,7 +69,30 @@ async function fetchData() {
             <td>${element.category}</td>
         </tr>
         `;
-    });
+            });
+
+        } else {
+            tableElement.innerHTML = ''
+            cardsElement.innerHTML = ''
+            cardsElement.classList.add("version2")
+            data.forEach((element) => {
+                cardsElement.innerHTML += `
+                    <div class="card">
+                        <img src="${element.image}">
+                        <div class="card__right">
+                            <h3>${element.title}</h3>
+                            <div class="card-v2__footer">
+                                <p class="card-footer__category">
+                                    ${element.category}
+                                </p>
+                                <p class="card-footer__price">
+                                    ${element.price}$
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            })
 
         }
     });
