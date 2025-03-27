@@ -11,8 +11,8 @@ async function fetchData() {
             <th>id</th>
             <th>image</th>
             <th>title</th>
-            <th>price</th>
             <th>category</th>
+            <th>price</th>
         </tr>`
     data.forEach((element) => {
         tableElement.innerHTML += `
@@ -20,8 +20,8 @@ async function fetchData() {
             <td>${element.id}</td>
             <td class="table-img"><img src="${element.image}"> </td>
             <td>${element.title}</td>
-            <td>${element.price}</td>
             <td>${element.category}</td>
+            <td>${element.price} $</td>
         </tr>
         `;
     });

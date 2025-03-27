@@ -22,6 +22,12 @@ main{
     align-self: flex-start;
     margin-top: 20px;
 }
+.table, tr, td, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
 .table-img img{
     width: 100px;
     height: 100px;
